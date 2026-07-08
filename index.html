@@ -1,23 +1,750 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "개인회생이의신청 최적화 가이드 및 대응 전략",
+      "url": "https://yourdomain.com/personal-rehabilitation-objection",
+      "description": "2026년 최신 기준 개인회생이의신청 절차, 채무자와 채권자 각각의 대응 방법 및 예상 비용을 체계적으로 안내합니다.",
+      "mainEntity": [
+        {
+          "@type": "HowTo",
+          "name": "개인회생이의신청 대응 절차",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "이의신청 통지서 수령 및 분석",
+              "text": "법원 또는 채권자로부터 이의신청서가 도달하면 이의 제기의 원인과 채권액의 차이점을 분석합니다."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "답변서 및 소명 자료 작성",
+              "text": "객관적인 금융 자료와 소득 증빙을 바탕으로 채권자의 주장을 반박할 답변서를 작성합니다."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "법원 제출 및 채권조사확정재판 진행",
+              "text": "작성된 답변서를 기한 내에 관할 회생법원에 제출하고 필요한 경우 재판 절차에 임합니다."
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "채권자가 개인회생이의신청을 하면 개시 결정이 취소되나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "단순히 이의신청이 제기되었다고 해서 개시 결정이 즉시 취소되지는 않습니다. 채무자가 소명 기한 내에 성실하게 답변서를 제출하고 법원이 이를 타당하다고 판단하면 원래의 회생 절차가 정상적으로 진행됩니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "대리인 선임 비용은 평균적으로 어느 정도 발생하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "사안의 난이도와 채권자의 수에 따라 차이가 있으나, 변호사나 법무사 대리인 선임 비용은 평균적으로 수십만 원에서 백만 원 안팎으로 책정됩니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --primary-color: #1e3a8a; 
+            --secondary-color: #3b82f6; 
+            --accent-color: #f97316; 
+            --background-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --border-color: #cbd5e1;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            margin: 0 0 1rem;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav {
+            margin-top: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.15);
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        nav a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid var(--primary-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2.1rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.8rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        th, td {
+            padding: 1.2rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        td {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--background-light);
+        }
+
+        .keyword-tags {
+            margin: 1.8rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .keyword-tags span {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #bfdbfe;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 1.2rem;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .faq-question {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            padding: 1.2rem 1.8rem;
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            user-select: none;
+        }
+
+        .faq-answer {
+            padding: 1.2rem 1.8rem;
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            display: none;
+            color: #334155;
+        }
+
+        .faq-question:after {
+            content: '보기';
+            position: absolute;
+            right: 1.8rem;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-weight: normal;
+        }
+
+        .faq-question.active:after {
+            content: '닫기';
+        }
+
+        .graph-container {
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            background-color: #f8fafc;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .graph-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .graph-label {
+            width: 180px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .graph-bar {
+            flex-grow: 1;
+            height: 32px;
+            border-radius: 6px;
+            background-color: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .graph-value {
+            height: 100%;
+            background-color: var(--secondary-color);
+            border-radius: 6px;
+            width: 0%;
+            transition: width 1.2s cubic-bezier(0.1, 0.8, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .simulator-box {
+            background-color: #f8fafc;
+            border: 2px dashed var(--secondary-color);
+            border-radius: 14px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            outline: none;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 0.4rem;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .result-panel {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .result-panel h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            border-bottom: 1px solid #bfdbfe;
+            padding-bottom: 0.5rem;
+        }
+
+        .external-links a {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 8px 12px;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 500;
+        }
+
+        .external-links a:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            background-color: var(--primary-color);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 1.8rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>개인회생이의신청 실무 지침서</h1>
+        <p>2026년 개정 규칙 준수 및 채무자 회생 제도 완벽 가이드: 기각 방지와 변제계획안 인가를 위한 대응 전략</p>
+        <nav>
+            <ul>
+                <li><a href="#intro">이의신청 개요</a></li>
+                <li><a href="#strategy">채무자 대응 전략</a></li>
+                <li><a href="#regional">지역 및 연령 분석</a></li>
+                <li><a href="#simulator">비용 계산기</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#reference">법률 정보 링크</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <section id="intro">
+            <h2>개인회생이의신청이란 무엇인가</h2>
+            <p>개인회생이의신청은 개인회생 절차가 개시된 이후, 채권자가 채무자의 변제계획안이나 채권자 목록의 내용에 대하여 부당함을 주장하며 법원에 공식적인 문제를 제기하는 절차를 의미합니다. 법원은 채권자로부터 이의가 접수되면 이를 면밀히 검토하며, 채무자에게 적절한 소명 및 소송 답변서 작성을 요구하게 됩니다.</p>
+            
+            <p>이 과정에서 채무자가 적극적으로 해명하지 않거나 객관적인 증빙 자료를 제출하지 못하면 개시 결정이 취소되거나 변제금이 과도하게 증액되는 불이익을 당할 수 있습니다. 2026년 현재 전국 법원의 회생 심사가 더욱 까다로워짐에 따라, 이의신청서가 송달된 즉시 법리적 요건을 확인하고 대응 논리를 구성하는 것이 무엇보다 중요해졌습니다.</p>
+            
+            <p>채권자의 이의신청 사유는 주로 소득 누락 가능성 지적, 재산 가치 평가의 불일치, 최근 채무 비율의 부당성 및 편파변제 여부 등으로 구성됩니다. 이러한 주장에 대해 감정적으로 대응하기보다는 금융거래 내역서, 세무 증빙자료 등 객관적인 수치를 바탕으로 소명 논리를 전개해야 법원의 인가를 무난히 이끌어낼 수 있습니다.</p>
+
+            <h3>주요 연관 검색어 및 자동완성 키워드 분석</h3>
+            <div class="keyword-tags">
+                <span>개인회생이의신청 답변서</span>
+                <span>채권조사확정재판</span>
+                <span>개인회생 기각 사유</span>
+                <span>변제계획안 인가 결정</span>
+                <span>개인회생 변제금 계산기</span>
+                <span>개인회생 전문 변호사 추천</span>
+            </div>
+            <p>포털 및 소셜 미디어를 통해 공유되는 사용자들의 관심사를 분석해 보면, 대다수 신청자들은 법적인 대처 방법을 가장 우려하고 있음을 알 수 있습니다. 이의제기를 적절히 조율하는 능력이 개인회생의 최종 성패를 가르게 됩니다.</p>
+        </section>
+
+        <section id="strategy">
+            <h2>채무자의 법적 대응 프로세스와 방어 전략</h2>
+            <p>채권자가 이의를 제기했을 때 채무자가 취할 수 있는 조치는 상황에 따라 세부적으로 나누어집니다. 가장 기본적이면서 중요한 대응책은 답변서를 신속하고 정확하게 제출하는 것입니다. 다음의 상세한 비교 도표를 참고하여 본인에게 적합한 처리 방안을 모색해야 합니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>대응 방식 종류</th>
+                        <th>핵심 처리 내용</th>
+                        <th>장점 및 단점</th>
+                        <th>추천 대상 및 적합 조건</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>직접 소명 (나홀로 소송)</td>
+                        <td>채무자가 법률 대리인 없이 직접 답변서와 증빙자료를 구비하여 송달하는 방식</td>
+                        <td>대리인 선임 비용이 들지 않아 저렴한것이 장점이나, 법률 전문성이 결여될 경우 기각 가능성이 커지는 단점이 있습니다.</td>
+                        <td>채무 구조가 지극히 단순하고 채권자의 이의 사유가 명백한 단순 오기일 경우 추천합니다.</td>
+                    </tr>
+                    <tr>
+                        <td>법률 대리인 컨설팅 위임</td>
+                        <td>전담 변호사 또는 법무사 사무소를 통해 답변서 작성 및 대리 송사를 수행하는 방식</td>
+                        <td>복잡한 사법 절차를 안전하게 처리할 수 있고 변제금 조정 협상력이 극대화되는 장점이 있으나, 일정 금액의 비용이 발생하는 단점이 있습니다.</td>
+                        <td>최근 대출 비율이 높거나 편파 변제 의심을 받는 상황, 혹은 다수의 대형 채권사가 집중적으로 태클을 거는 경우 강력 추천합니다.</td>
+                    </tr>
+                    <tr>
+                        <td>채권조사확정재판 신청</td>
+                        <td>채권액수나 채권의 실재 유무 자체에 분쟁이 있을 때 법원의 사법적 판단을 구하는 재판</td>
+                        <td>판결을 통해 채권 금액을 가장 명확하게 확정 지을 수 있는 장점이 있으나, 송달료 및 인지대 등 추가 금액과 시간이 소요되는 단점이 있습니다.</td>
+                        <td>가짜 채권이 의심되거나 이자 계산이 현격하게 잘못되어 예상 견적에 큰 오차가 발생하는 경우에 해당합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>개인회생이의신청 유형별 평균 발생 비중</h3>
+            <div class="graph-container">
+                <p><strong>주요 이의신청 사유별 분포 통계 (2026년도 사법연감 가상 시뮬레이션 데이터 기준)</strong></p>
+                <div class="graph-item">
+                    <div class="graph-label">소득 축소 및 누락 의심</div>
+                    <div class="graph-bar"><div class="graph-value" style="width: 42%;">42%</div></div>
+                </div>
+                <div class="graph-item">
+                    <div class="graph-label">최근 채무 비중 과다</div>
+                    <div class="graph-bar"><div class="graph-value" style="width: 28%;">28%</div></div>
+                </div>
+                <div class="graph-item">
+                    <div class="graph-label">재산가치 과소평가</div>
+                    <div class="graph-bar"><div class="graph-value" style="width: 18%;">18%</div></div>
+                </div>
+                <div class="graph-item">
+                    <div class="graph-label">채권자 목록 오류</div>
+                    <div class="graph-bar"><div class="graph-value" style="width: 12%;">12%</div></div>
+                </div>
+            </div>
+            <p>통계 자료를 살펴보면 알 수 있듯이, 소득에 관한 성실한 증명이 전체 이의신청 사건 방어의 절반 가까이를 차지할 만큼 결정적인 요인으로 작용합니다. 소득 가치 입증에 심혈을 기울여야 합니다.</p>
+        </section>
+
+        <section id="regional">
+            <h2>전국 지역별 법원 경향 및 연령대별 실무 특징</h2>
+            <p>대한민국의 사법 체계는 관할 지방법원마다 개인회생 절차를 처리하는 지침과 실무적인 경향에 미세한 차이점이 존재합니다. 서울회생법원이나 부산회생법원, 수원회생법원처럼 도심지에 위치하여 전담 재판부가 활성화되어 있는 곳은 비교적 신속하고 객관적인 심사가 진행되는 편입니다. 반면 전담 법원이 지정되지 않은 지방의 관할 법원들은 이의신청 소명 요구 수준이 한층 더 까다로울 수 있습니다.</p>
+            
+            <p>예를 들어 대구, 인천, 광주, 대전, 울산 등의 광역시 법원들과 경기 남부의 중심인 성남, 고양, 용인, 안산, 부천 지역 법원들은 사건 접수 건수가 대단히 많아 채권자들의 이의제기 접수율도 비례하여 높게 관측됩니다. 이 외에도 강원, 충북, 충남, 전북, 전남, 경북, 경남, 제주 등지에 거주하는 신청자들은 인근 법원인 원주, 청주, 천안, 아산, 전주, 창원, 포항, 구미 등의 사법 보좌관 성향을 면밀히 분석하는 전담 업체의 상담 컨설팅을 받는 것이 권장됩니다.</p>
+            
+            <p>연령대에 따른 채무 특성도 뚜렷한 차이를 보입니다. 20대와 30대 청년층 신청자들은 모바일 앱이나 인터넷 온라인 커뮤니티인 디시인사이드, 보배드림, 에펨코리아(펨코) 등에서 내돈내산 가입 후기나 절약 팁을 공유받아 영리하게 대처하는 능력이 뛰어납니다. 반대로 40대, 50대, 60대 장노년층 신청자들은 오프라인 전문 업체나 오랜 경력의 브랜드 순위가 높은 변호사 사무실을 통한 오프라인 중심의 해결을 선호하는 경향이 짙습니다. 각 연령별 자산 보유 현황과 생계비 책정 기준이 상이하므로, 이에 맞춤화된 변제 금액 산출 계산기 어플 등을 적극 활용하는 지혜가 필요합니다.</p>
+        </section>
+
+        <section id="simulator">
+            <h2>개인회생이의신청 자가 진단 및 예상 대응 비용 계산기</h2>
+            <p>법률 사무소를 방문하기 전에 현재 처한 상황에서 발생할 수 있는 대략적인 방어 전략과 대리인 선임 가격 견적을 가늠해볼 수 있는 계산 모델입니다. 아래 정보를 정확하게 입력하시면 최적화된 시뮬레이션 결과를 도출할 수 있으며, 이 페이지 내에서 신중하게 정보를 입력하시는 시간 동안 체류하시며 꼼꼼하게 검토하시는 것이 권장됩니다.</p>
+            
+            <div class="simulator-box">
+                <form id="calcForm" onsubmit="calculateRehab(event);">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regCity">관할 법원 지역 선택</label>
+                            <select id="regCity" required>
+                                <option value="">선택해 주세요</option>
+                                <option value="seoul">서울특별시</option>
+                                <option value="gyeonggi">경기도 (수원/성남/고양/용인 등)</option>
+                                <option value="incheon">인천광역시</option>
+                                <option value="gyeongnam">부산 및 영남 지역 (부산/대구/울산/창원)</option>
+                                <option value="honam">광주 및 호남 지역 (전주/목포/순천)</option>
+                                <option value="chungcheong">대전 및 충청 지역 (청주/천안/아산)</option>
+                                <option value="etc">기타 지방 관할 법원 (강원/제주 등)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ageGroup">신청자 연령대</label>
+                            <select id="ageGroup" required>
+                                <option value="">선택해 주세요</option>
+                                <option value="2030">20대 및 30대 청년층</option>
+                                <option value="4050">40대 및 50대 장년층</option>
+                                <option value="60plus">60대 이상 노년층</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="creditorNum">채권자 총 인원수 (명)</label>
+                            <input type="number" id="creditorNum" placeholder="예: 7" min="1" required>
+                            <small>채권자 명수가 늘어날수록 법원에 송달료 및 이의제기 건수가 증가합니다.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="totalDebt">총 채무 예상 금액 (원)</label>
+                            <input type="number" id="totalDebt" placeholder="예: 50000000" min="100000" required>
+                            <small>원금 총액 기준이며, 담보 및 무담보 대출을 모두 합산해 주세요.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="objectionType">채권자 이의신청 사유 유형</label>
+                        <select id="objectionType" required>
+                            <option value="">선택해 주세요</option>
+                            <option value="income">소득 축소 고지 의심 (최근 프리랜서 전환 등)</option>
+                            <option value="recent">최근 1년 이내 무분별한 대출 비중 과다</option>
+                            <option value="property">부동산/차량 등 담보 자산 가치 저평가 지적</option>
+                            <option value="etc">기타 단순 송달 주소 보정 및 채권 명의 변경</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="cta-button" style="width: 100%; border: none; cursor: pointer;">예상 결과 및 소요 비용 산출하기</button>
+                </form>
+
+                <div id="resultPanel" class="result-panel">
+                    <h4>진단 시뮬레이션 예상 결과 보고서 (2026년 기준 예측치)</h4>
+                    <p id="resultText"></p>
+                    <p id="costText" style="font-weight: 700; color: var(--accent-color);"></p>
+                    <small>본 시뮬레이션 수치는 통계적 기댓값을 근거로 한 예상 수치이므로 실제 법적 송사와 전문가 상담 시 구체적인 내용에 따라 변동될 수 있습니다.</small>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>개인회생이의신청 관련 핵심 질의응답 (FAQ)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">채권자의 이의신청서가 법원에 접수되면 즉시 제 회생 절차가 중단되나요?</div>
+                    <div class="faq-answer">
+                        아닙니다. 이의신청이 제기되었다고 해서 사건 진행이 중단되거나 자동으로 기각되지 않습니다. 법원은 채무자에게 해명 기회를 주기 위해 주소 보정 권고나 소명 지시를 담은 서류를 보내며, 정해진 답변 기한 내에 조리 있고 정직한 서류를 작성하여 증거 자료와 함께 제출하면 원래 계획대로 무사히 인가를 얻을 수 있습니다.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">인터넷 온라인이나 전단지에서 대리 수수료 할인, 사은품 증정 및 현금지원을 약속하는 곳은 안전한가요?</div>
+                    <div class="faq-answer">
+                        법률 분야의 전문 업체 수임 과정에서 무분별한 현금 지원금 지급, 상품권 사은품 증정, 혹은 리백 형태의 과도한 이벤트 혜택 제공을 홍보하는 곳은 신뢰도가 극히 낮습니다. 법조 윤리상 변호사 및 법무사 법률 행위와 관련해 음성적인 금융 혜택을 주는 행위는 법적 처벌 대상이 되며, 정작 중요할 때 변론이나 서면 작성이 엉망이 되어 회생 기각이라는 최악의 단점을 겪게 될 위험이 큽니다.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">디시인사이드나 보배드림, 펨코 등 커뮤니티의 내돈내산 자가 해결 후기를 따라 해도 괜찮을까요?</div>
+                    <div class="faq-answer">
+                        커뮤니티에 올라오는 직접 가입 및 방어 경험담은 개개인의 고유한 채무 상황과 재산 가치 평가 기준에 바탕을 두고 작성된 것들이 많습니다. 개개인의 거주지 및 법원 관할, 채무의 종류에 따라 적용되는 법리가 천차만별이기 때문에, 무작정 다른 사람의 성공 가이드 방식을 정답이라 맹신하고 모방하다가는 정해진 제출 시기를 놓치거나 소명이 불완전하게 처리되어 막대한 불이익을 야기할 수 있습니다.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">변제금액 상향 조정 합의 요구가 왔을 때는 어떻게 조율하는 것이 제일 현명합니까?</div>
+                    <div class="faq-answer">
+                        채권사들은 변제율을 올리기 위해 과도한 가구 생계비 지출 항목을 집요하게 늘려서 공격해 오곤 합니다. 이때는 최저 생계비 기준에 부합하는 정밀 증빙자료를 구글이나 네이버 등 신뢰할 수 있는 소스로부터 조회하여 타당성을 입증하거나, 조정할 수 있는 최소한의 금액 타협선을 도출하기 위해 공신력 있는 전문 대리인과의 구체적인 상담 컨설팅을 받는 방법을 강력히 추천합니다.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">인공지능 도구(챗지피티, 제미나이 등)를 이용해 이의신청 답변서를 스스로 작성할 수 있나요?</div>
+                    <div class="faq-answer">
+                        최근 ChatGPT 나 Gemini 같은 생성형 인공지능 기술의 발전으로 탄원서나 기본적인 답변서 초안을 구성하는 것은 한층 수월해졌습니다. 단, AI 도구들은 사소한 사실 관계를 가공하는 할루시네이션(환각) 현상을 종종 일으키며, 실제 2026년 대한민국 회생 법원이 엄격하게 요구하는 최신 실무 판례나 양식의 미세한 뉘앙스를 반영하지 못하므로, AI 초안을 기반으로 하더라도 반드시 최종 제출 전에는 전문가의 정밀한 대면 상담 및 교정 과정을 거쳐야 안전합니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reference">
+            <h2>신뢰성 높은 법률 자료실 및 관련 외부 사이트</h2>
+            <p>개인회생이의신청 및 채무자 회생 제도 전반에 관해 보다 공신력 있고 세부적인 규정을 확인하고자 하시는 분들은 아래의 공식적인 국가 기관 및 법률 전문 링크들을 유용하게 활용하시기 바랍니다. 외부 자료의 법률 조항을 상호 참조하시는 것은 본인의 방어 논리를 보다 정교하게 구상하는 데 큰 보탬이 됩니다.</p>
+            <div class="external-links">
+                <a href="https://recoveryonlawq.koreahankang.com" target="_blank" rel="noopener">법률 파트너십 허브 - 개인회생이의신청서 및 답변 양식 실무 해설</a>
+                <a href="https://ecfs.scourt.go.kr" target="_blank" rel="noopener">대한민국 법원 전자소송 시스템</a>
+                <a href="https://www.law.go.kr" target="_blank" rel="noopener">국가법령정보센터 - 채무자 회생 및 파산에 관한 법률</a>
+                <a href="https://slb.scourt.go.kr" target="_blank" rel="noopener">서울회생법원 공식 포털 사이트</a>
+                <a href="https://namu.wiki/w/%EA%B0%9C%EC%9D%B8%ED%9A%8C%EC%83%9D" target="_blank" rel="noopener">나무위키 - 개인회생 제도 설명 및 실무 상식</a>
+            </div>
+            <p>공신력 넘치는 참조 자료와 검증된 사법 포털들을 적극 확인하시어, 본인의 정당한 권익을 지키고 채권자의 무리한 공세로부터 재정적 재기를 완벽하게 수호하시길 기대합니다.</p>
+        </section>
+
+        <div style="text-align: center;">
+            <a href="#simulator" class="cta-button">무상 자가 진단 및 맞춤 대응 방안 알아보기</a>
+        </div>
     </main>
-  </body>
-</html>
+
+    <script>
+        // FAQ 아코디언 구현
+        document.querySelectorAll('.faq-question').forEach((question) => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.style.display = 'none';
+                });
+
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.style.display = 'block';
+                }
+            });
+        });
+
+        // 그래프 애니메이션 트리거
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.graph-value').forEach(bar => {
+                    const targetWidth = bar.textContent;
+                    bar.style.width = targetWidth;
+                });
+            }, 300);
+        });
+
+        // 시뮬레이터 연산 기능
+        function calculateRehab(event) {
+            event.preventDefault();
+            
+            const city = document.getElementById('regCity').value;
+            const age = document.getElementById('ageGroup').value;
+            const creditorNum = parseInt(document.getElementById('creditorNum').value) || 0;
+            const totalDebt = parseInt(document.getElementById('totalDebt').value) || 0;
+            const objType = document.getElementById('objectionType').value;
+
+            let dangerLevel = "보통";
+            let defaultBaseCost = 500000;
+            let plusPerCreditor = 50000;
+            
+            // 법원 및 지역별 난이도 산정
+            let cityFactorText = "대도시 전담 법원 관할 하에 안정적으로 배정";
+            if(city === "etc" || city === "honam") {
+                dangerLevel = "주의";
+                cityFactorText = "지방 법원 특성상 기일이 길어지거나 더 깐깐한 심사 통지가 송달될 여지 있음";
+            }
+
+            // 이의 사유에 따른 리스크 가중
+            let reasonText = "";
+            let riskMultiplier = 1.0;
+            if (objType === "income") {
+                riskMultiplier = 1.3;
+                reasonText = "소득의 명확성을 부정하려는 공세에 직면하셨기에 정밀한 금융거래 증명이 급선무입니다.";
+            } else if (objType === "recent") {
+                riskMultiplier = 1.4;
+                dangerLevel = "심각";
+                reasonText = "최근 대출금이 자산 형성에 남용되었거나 도박 채무 등이 혼합되었는지 의심받을 수 있어 방어가 매우 까다롭습니다.";
+            } else if (objType === "property") {
+                riskMultiplier = 1.2;
+                reasonText = "부동산이나 차량 가치 평가를 보수적으로 재증명하여 불필요한 청산가치 증액을 차단해야 합니다.";
+            } else {
+                reasonText = "채권자 정보 단순 오류 등에 속하므로 서류 보정을 통해 매끄럽게 통과할 가능성이 우세합니다.";
+            }
+
+            // 비용 계산
+            let finalCost = Math.round((defaultBaseCost + (creditorNum * plusPerCreditor)) * riskMultiplier);
+            
+            // 텍스트 포맷팅
+            const costFormatted = finalCost.toLocaleString() + " 원";
+            
+            let resultTextContent = `
+                귀하의 사건 관할 법원은 [${cityFactorText}] 지침의 영향을 받습니다. 
+                선택하신 소명 분석 결과 현재의 위험 등급은 [${dangerLevel}] 단계에 준합니다.
+                또한, 채권자가 문제 삼은 이의제기는 [${reasonText}]
+            `;
+            
+            let costTextContent = `
+                전담 법률 대리인 컨설팅 및 소송 서면 작성 대리 예상 금액: 약 ${costFormatted} 내외
+            `;
+
+            document.getElementById('resultText').innerText = resultTextContent;
+            document.getElementById('costText').innerText = costTextContent;
+            document.getElementById('resultPanel').style.display = 'block';
+            
+            // 결과창으로 부드럽게 스크롤
+            document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+  
